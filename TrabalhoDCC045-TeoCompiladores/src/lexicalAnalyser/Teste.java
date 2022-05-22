@@ -6,7 +6,7 @@ public class Teste{
      public static void main(String args[]) throws IOException{
 
         //String fileName = "sample1.txt";
-        String fileName = "exemplo1.txt";
+        String fileName = "testes/sintaxe/errado/instanciate.lan";
          
           // LextTest lx = new LextTest(new FileReader(args[0]));
           LextTest lx = new LextTest(new FileReader(fileName));

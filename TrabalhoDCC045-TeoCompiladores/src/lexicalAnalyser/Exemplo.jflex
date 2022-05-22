@@ -47,8 +47,8 @@
   numeroInteiro = [:digit:] [:digit:]*
   identificador = [:lowercase:] {ID_GERAL}*
   tipo          = [:uppercase:] {ID_GERAL}* 
-  ASPAS = "'" | "’"
-  chacter       = {ASPAS} (.) {ASPAS}
+  ASPAS         = [\'] | ["'"] | [']
+  chacter       = {ASPAS} (.) {ASPAS} | {ASPAS} "\\" (.) {ASPAS} 
   LineComment   = "--" (.)* {FimDeLinha}
   
 %state COMMENT
