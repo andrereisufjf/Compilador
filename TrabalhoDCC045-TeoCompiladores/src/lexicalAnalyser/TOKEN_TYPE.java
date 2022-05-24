@@ -1,3 +1,11 @@
+ /*
+  * DCC045 - Teoria dos Compiladores - 2022.1
+  *  André Luiz dos Reis - 201965004AC
+  *  Lucca Oliveira Schröder - 201765205C
+  */
+
+package lexicalAnalyser;
+
 public enum TOKEN_TYPE {
     ID,
     NUM,
@@ -8,9 +16,6 @@ public enum TOKEN_TYPE {
     DIV,
     PERC,
     CHAR,
-    //SEMI,
-    //AP, // (
-    //FP, // )
     PRINT, 
     WHILE,
     TYPE,
