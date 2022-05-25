@@ -1,3 +1,9 @@
+ /*
+  * DCC045 - Teoria dos Compiladores - 2022.1
+  *  André Luiz dos Reis - 201965004AC
+  *  Lucca Oliveira Schröder - 201765205C
+  */
+
 package lexicalAnalyser;
 
 import java.io.FileReader;
@@ -11,8 +17,14 @@ public class Main{
     
      public static void main(String args[]) throws IOException, Exception{
 
-        //String fileName = args[0];
-        String fileName = "exemplo1.txt";
+        String fileName;
+        
+        // valida a passagem de parametro
+        if(args.length != 0){
+            fileName = args[0];
+        }else{
+            fileName = "testes/exemplo1.txt";
+        }
         
         if(fileName.isEmpty()){
             throw new Exception("Informe o nome do arquivo a ser processado!");
@@ -29,6 +41,6 @@ public class Main{
         }
           
         // informe do total de tokens lidos
-        System.out.println("Total de tokens lidos " + lx.readedTokens());
+        //System.out.println("Total de tokens lidos " + lx.readedTokens());
      }
 }

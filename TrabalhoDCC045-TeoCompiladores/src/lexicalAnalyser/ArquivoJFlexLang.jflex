@@ -118,11 +118,11 @@ package lexicalAnalyser;
 
 /* IDENTIFICADOS GERAL */
 
-    {identificador} { return symbol(TOKEN_TYPE.ID);   }
-    {tipo}          { return symbol(TOKEN_TYPE.TYPE);   }
+    {identificador} { return symbol(TOKEN_TYPE.ID, yytext());   }
+    {tipo}          { return symbol(TOKEN_TYPE.TYPE, yytext());   }
     {numeroDecimal} { return symbol(TOKEN_TYPE.DEC, Float.parseFloat(yytext()) );  }
     {numeroInteiro} { return symbol(TOKEN_TYPE.NUM, Integer.parseInt(yytext()) );  }
-    {chacter}       { return symbol(TOKEN_TYPE.CHAR);   }
+    {chacter}       { return symbol(TOKEN_TYPE.CHAR, yytext());   }
     "{-*"            { yybegin(COMMENT);}
 }
 

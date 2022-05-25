@@ -1210,7 +1210,7 @@ class LexicalAnalyserLang {
             // fall through
           case 64: break;
           case 19:
-            { return symbol(TOKEN_TYPE.TYPE, yytext());
+            { return symbol(TOKEN_TYPE.TYPE);
             }
             // fall through
           case 65: break;
@@ -1225,7 +1225,7 @@ class LexicalAnalyserLang {
             // fall through
           case 67: break;
           case 22:
-            { return symbol(TOKEN_TYPE.ID, yytext());
+            { return symbol(TOKEN_TYPE.ID);
             }
             // fall through
           case 68: break;
@@ -1275,7 +1275,7 @@ class LexicalAnalyserLang {
             // fall through
           case 77: break;
           case 32:
-            { return symbol(TOKEN_TYPE.CHAR, yytext());
+            { return symbol(TOKEN_TYPE.CHAR);
             }
             // fall through
           case 78: break;

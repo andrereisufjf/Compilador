@@ -38,7 +38,12 @@ public class Token {
     
     @Override
     public String toString(){
-       return "[("+l+","+ c+ ") "+ t.name()  +" \"" + lexeme + "\" : <" + (info == null ? "" : info.toString()) + ">]";
+        if(info == null){
+            return lexeme;
+        }else{
+            return t.name() + ":" + info.toString();
+        }
+       //return "[("+l+","+ c+ ") "+ t.name()  +" \"" + lexeme + "\" : <" + (info == null ? "" : info.toString()) + ">]";
     }
 }
 
