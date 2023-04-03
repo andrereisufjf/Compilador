@@ -63,6 +63,7 @@ package lexicalAnalyser;
   
 %state COMMENT
 
+
 %%
 
 <YYINITIAL>{
