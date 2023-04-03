@@ -72,7 +72,7 @@ package lexicalAnalyser;
 
     /* novos casos  */
 
-/*  PALABRAS RESERVADAS */
+/*  PALAVRAS RESERVADAS */
     "true" { return symbol(TOKEN_TYPE.TRUE_KEYWORD); }
     "false" { return symbol(TOKEN_TYPE.FALSE_KEYWORD); }
     "null" { return symbol(TOKEN_TYPE.NULL_KEYWORD); }
