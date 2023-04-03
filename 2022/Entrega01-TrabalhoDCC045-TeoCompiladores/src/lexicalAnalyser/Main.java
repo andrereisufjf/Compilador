@@ -23,7 +23,7 @@ public class Main{
         if(args.length != 0){
             fileName = args[0];
         }else{
-            fileName = "testes/exemplo1.txt";
+//            fileName = "testes/exemplo1.txt";
         }
         
         if(fileName.isEmpty()){
