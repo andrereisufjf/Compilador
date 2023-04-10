@@ -58,7 +58,7 @@ package lexicalAnalyser;
   identificador = [:lowercase:] {ID_GERAL}*
   tipo          = [:uppercase:] {ID_GERAL}* 
   ASPAS         = [\'] | ["'"] | [']
-  chacter       = {ASPAS} (.) {ASPAS} | {ASPAS} "\\" (.) {ASPAS} 
+  chacter       = {ASPAS} (.) {ASPAS} | {ASPAS} ("\\n" | "\\t" | "\\b" | "\\r" | "\\\\")  {ASPAS}
   LineComment   = "--" (.)* {FimDeLinha}
   
 %state COMMENT
