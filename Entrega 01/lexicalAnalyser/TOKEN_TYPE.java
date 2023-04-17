@@ -1,5 +1,5 @@
  /*
-  * DCC045 - Teoria dos Compiladores - 2022.1
+  *  DCC045 - Teoria dos Compiladores
   *  André Luiz dos Reis - 201965004C
   *  Lucca Oliveira Schröder - 201765205C
   */

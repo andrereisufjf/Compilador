@@ -19,3 +19,6 @@ mult(Int m, Int n ) : q + 1{
     }
 }
 
+'A'
+'B'
+'\t'

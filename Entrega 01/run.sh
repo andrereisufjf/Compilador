@@ -1,3 +1,10 @@
+# ------------
+# Arquivo de build para compila ̧c ̃ao do fonte
+#
+# DCC045 - Teoria dos Compiladores
+# André Luiz dos Reis - 201965004C
+# Lucca Oliveira Schröder - 201765205C
+# ------------
 
 # Gerando o arquivo de analisador lexico e sintatico
 cd lexicalAnalyser
