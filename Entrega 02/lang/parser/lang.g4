@@ -10,7 +10,6 @@ grammar lang;
 {
     package lang.parser;
 
-    import lang.ast.*;
 }
 
 @lexer::header
@@ -20,13 +19,12 @@ grammar lang;
 
 /* Regras da gramática */
 
+/* Início */
 prog :
-  data* func*
-;
+  data* func*;
 
 data :
- 'data' IDTYPE '{' decl+ '}'
-;
+ 'data' IDTYPE '{' decl+ '}';
 
 decl :
  (ID|IDTYPE) '::' type ';'
@@ -56,9 +54,9 @@ cmd :
  'if' '(' exp ')' cmd 'else' cmd
 |
  'iterate' '(' exp ')' cmd
-| 
+|
  'read' lvalue ';'
-| 
+|
  'print' exp ';'
 |
  'return' exp (',' exp)* ';'
@@ -132,7 +130,7 @@ lvalue :
 |
  lvalue '[' exp ']'
 |
- lvalue '.' ID 
+ lvalue '.' ID
 ;
 
 exps :

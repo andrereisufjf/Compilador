@@ -6,12 +6,18 @@
 
 package lang.ast;
 
-public abstract class SuperNode {
+ import lang.visitors.Visitable;
+public abstract class SuperNode implements Visitable  {
    
    // The line and column of the node in the input text
    
     public abstract int getLine();
     public abstract int getColumn();
+
+    public void accept(Visitor v) {
+        // do nothing
+        // v.visit(this);
+    }
 }
 
 

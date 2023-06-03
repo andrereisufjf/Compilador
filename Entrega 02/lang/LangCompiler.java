@@ -9,6 +9,7 @@ package lang;
 import java.io.*;
 import lang.parser.*;
 import lang.ast.*;
+//import lang.visitors.*;
 
 public class LangCompiler{
    // Recupera o nome base (sem extensão) de um arquivo.
@@ -44,8 +45,9 @@ public class LangCompiler{
               // TestParser tp = new TestParser(langParser); ;
               return;
           } if(args[0].equals("-bsm") ){
-              System.out.println("Executando bateria de testes sintáticos:");
-              // TestParser tp = new TestParser(langParser); 
+              System.out.println("Executando bateria de testes sintáticos interpretando:");
+              // TestParser tp = new TestParser(langParser);
+               // TestVisitor tp = new TestVisitor(langParser);
               return;
           }
           if(args.length != 2){
