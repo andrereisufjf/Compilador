@@ -42,21 +42,27 @@ public class MyParseAdaptor implements ParseAdaptor{
 		SyntaxError syntaxError = new SyntaxError();           
 		
 		//remove ConsoleErrorListener
-		parser.removeErrorListeners();
-		lex.removeErrorListeners();
+//		parser.removeErrorListeners();
+//		lex.removeErrorListeners();
 		
 		// adiciona obj para guardar os erros
-		parser.addErrorListener(syntaxError); 
-		lex.addErrorListener(syntaxError);
+//		parser.addErrorListener(syntaxError);
+//		lex.addErrorListener(syntaxError);
 		
 		// roda as validações
 		final ParseTree tree = parser.prog();
 		
-		//valida se ha um erro, retorna null em caso positivo
-		if(syntaxError.isError() == true){
-			return null;
-			//System.out.println("ERRO - REIS");
-		}
+//		//valida se ha um erro, retorna null em caso positivo
+//		if(syntaxError.isError() == true){
+//			return null;
+//			//System.out.println("ERRO - REIS");
+//		}
+
+		   //valida se ha um erro, retorna null em caso positivo
+		   if(parser.getNumberOfSyntaxErrors() != 0){
+			   return null;
+			   //System.out.println("ERRO - REIS");
+		   }
 	   
 	   // se nao houver erros, retorna um SuperNOde
 		return new MySuperNode();

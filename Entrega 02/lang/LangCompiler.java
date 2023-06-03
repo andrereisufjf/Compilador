@@ -53,13 +53,16 @@ public class LangCompiler{
               return; 
           }
 		  //SuperNode result = langParser.parseFile(args[1]);
-		  // Reis
+
+           // Reis
 		  MyParseAdaptor aux = new MyParseAdaptor();
 		  SuperNode result = aux.parseFile(args[1]);
+
           if(result == null){
                System.err.println("Aborting due to syntax error(s)");
                System.exit(1);
           }
+
           else if(args[0].equals("-i") ){
               //iv = new InterpreterVisitor();
               //result.accept(iv);

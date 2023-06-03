@@ -25,29 +25,27 @@ prog :
 ;
 
 data :
- 'data' ID '{' decl* '}'
+ 'data' IDTYPE '{' decl+ '}'
 ;
 
 decl :
- ID '::' type ';'
+ (ID|IDTYPE) '::' type ';'
 ;
 
 func :
- ID '(' params* ')' ( ':' type (',' type)* )* '{' cmd* '}'
+ (ID|IDTYPE) '(' params* ')' ( ':' type (',' type)* )* '{' cmd* '}'
 ;
 
 params :
- ID '::' type (',' ID '::' type)* 
+ (ID|IDTYPE) '::' type (',' (ID|IDTYPE) '::' type)*
 ;
 
 type :
- type '[' ']'
- |
- btype  
+ btype ( '[' ']' )*
 ;
 
 btype :
- 'Int' | 'Char' | 'Bool' | 'Float' | ID
+ 'Int' | 'Char' | 'Bool' | 'Float' | IDTYPE
 ;
 
 cmd :
@@ -144,8 +142,9 @@ exps :
 
 /* Regras léxicas */
 
-CHAR: '\'' . '\'' | '\'' '\\n' '\'' | '\'' '\\t' '\''  | '\'' '\\\\' '\'';
-ID : ( [a-z] | [A-Z] | [0-9] | '_' )+;
+CHAR: '\'' ( ~[\\'] | '\\n' | '\\t' | '\\b' | '\\r' | '\\\\' | '\\\'' ) '\'';
+ID : [a-z] [a-zA-Z0-9_]*;
+IDTYPE : [A-Z] [a-zA-Z0-9_]*;
 INT : [0-9]+;
 FLOAT: [0-9]*  '.'  [0-9]+;
 
