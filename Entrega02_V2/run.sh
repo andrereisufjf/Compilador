@@ -18,9 +18,14 @@ javac -cp ".;antlr-4.10.1-complete.jar" lang/ast/*.java lang/parser/*.java lang/
 # javac -cp ".;antlr-4.8-complete.jar" lang/visitors/*.java
 # javac -cp ".;antlr-4.8-complete.jar" lang/ast/*.java
 # javac -cp ".;antlr-4.8-complete.jar" lang/LangCompiler.java
+#
+#  DCC045 - Teoria dos Compiladores - 2022.1
+#  André Luiz dos Reis - 201965004AC
+#  Lucca Oliveira Schröder - 201765205C
+#
 
-
-
+# Dentro da pasta Entrega 02 V2
+# ./run.sh -bs
 
 java -cp ".;antlr-4.10.1-complete.jar" lang/LangCompiler $1 $2
 

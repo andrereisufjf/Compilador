@@ -2,7 +2,7 @@
   * DCC045 - Teoria dos Compiladores - 2022.1
   *  André Luiz dos Reis - 201965004AC
   *  Lucca Oliveira Schröder - 201765205C
-  */
+ */
 
 grammar lang;
 

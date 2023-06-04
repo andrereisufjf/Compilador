@@ -1,14 +1,8 @@
-/*
-
-Grupo
-
-Nome: André Dias Nunes
-Matrícula: 201665570C
-
-Nome: Guilherme Barbosa
-Matrícula: 201435031
-
-*/
+ /*
+  *  DCC045 - Teoria dos Compiladores - 2023.1
+  *  André Luiz dos Reis - 201965004C
+  *  Lucca Oliveira Schröder - 201765205C
+ */
 
 grammar lang;
 
@@ -28,7 +22,7 @@ grammar lang;
 program: (data)* (func)+;			
 
 /* data */																				
-data: DATA IDTYPE LEFTBRACKET (decl)+ RIGHTBRACKET; 																		
+data: DATA IDTYPE '{' (decl)+ RIGHTBRACKET;
 decl: (ID|IDTYPE) DOUBLECOLON type SEMICOLON; 		
 
 /* func */
@@ -102,7 +96,7 @@ lvalue: (ID|IDTYPE) 							#lValueIDs
 	;
 																									
 /* Lexic Rules */
-DATA: 			'data'; 
+DATA: 			'data';
 TYPEINT: 		'Int';
 TYPEFLOAT: 		'Float';
 TYPECHAR: 		'Char';
