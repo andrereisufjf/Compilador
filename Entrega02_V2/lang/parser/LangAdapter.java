@@ -19,7 +19,8 @@ public class LangAdapter implements ParseAdaptor {
 			langLexer lexer = new langLexer(stream);
 			CommonTokenStream tokenStream = new CommonTokenStream(lexer) ;
 			langParser parser = new langParser(tokenStream);
-			ParseTree result = parser.program();	
+			ParseTree result = parser.program();
+
 			if( parser.getNumberOfSyntaxErrors() == 0 ) {
 				LangVisitors v = new LangVisitors();
 				return result.accept(v);

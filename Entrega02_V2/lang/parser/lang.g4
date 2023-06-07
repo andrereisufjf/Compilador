@@ -16,25 +16,25 @@ grammar lang;
     package lang.parser;
 }
 
-/* Gramatic Rules */
+/* Regras gramaticais */
 
-/* start */
+/* Início */
 program: (data)* (func)+;			
 
-/* data */																				
+/* Data */
 data: 'data' IDTYPE '{' (decl)+ '}';
 decl: (ID|IDTYPE) '::' type ';';
 
-/* func */
+/* Funções */
 func: (ID|IDTYPE) '(' (params)? ')' (':' type (',' type)*)? '{' (cmd)* '}';
 params: param (',' param)*;
 param: (ID|IDTYPE) '::' type;
 
-/* type */
+/* Tipos (já tirei a RE) */
 type: btype (brace)*;		
 brace: '[' ']';
 
-/* btype */	
+/* Declarações de tipo */
 btype: 'Int' 		#tyInt
 	| 'Char' 		#tyChar
 	| 'Bool' 		#tyBool
@@ -42,7 +42,7 @@ btype: 'Int' 		#tyInt
 	| IDTYPE 		#tyID
 	;
 
-/* cmd */
+/* Comandos */
 cmd: '{' (cmd)* '}'				#stmtList
 	| 'if' '(' exp ')' cmd 			#if
 	| 'if' '(' exp ')' cmd 'else' cmd 	#ifElse
@@ -54,7 +54,7 @@ cmd: '{' (cmd)* '}'				#stmtList
 	| (ID|IDTYPE) '(' (exps)? ')' ('<' lvalue (',' lvalue)* '>')? ';'		#callCmd
 	;
 
-/* exp */	
+/* Expressões */
 exp: exp '&&' exp		#and
 	| rexp				#rExpr
 	;
@@ -89,13 +89,13 @@ pexp: lvalue 																	#lValues
 	;
 exps: exp ( ',' exp )*;
 
-/* lvalue */	
+/* Acessos */
 lvalue: (ID|IDTYPE) 							#lValueIDs
 	| lvalue '[' exp ']' 			#array
 	| lvalue '.' (ID|IDTYPE) 					#accessData
 	;
 																									
-/* Lexic Rules */
+/* Macros */
 ID: 			[a-z] [a-zA-Z0-9_]*;
 IDTYPE: 		[A-Z] [a-zA-Z0-9_]*;
 INT: 			('0'..'9')+;

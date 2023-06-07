@@ -47,7 +47,7 @@ public class InterpretVisitor extends Visitor{
             }
         }
         if (main == null) {
-            throw new RuntimeException("There is no main function! Aborted!");
+            throw new RuntimeException("Nenhuma funcao main identificada! ERROR!");
         }
         main.accept(this);
     }
@@ -117,7 +117,7 @@ public class InterpretVisitor extends Visitor{
                 }
                 returns.clear();
             } else {
-                throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") Undefined function " + e.getName());
+                throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") Funcao nao definida " + e.getName());
             }
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -135,7 +135,7 @@ public class InterpretVisitor extends Visitor{
                 operands.push(returns.get((Integer) operands.pop()));
                 returns.clear();
             } else {
-                throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") Undefined function " + e.getName());
+                throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") Funcao nao definida " + e.getName());
             }
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -271,7 +271,7 @@ public class InterpretVisitor extends Visitor{
                 }
                 operands.push(obj);
             } else {
-                throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") not declared" + e.getId());
+                throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") Variavel nao declarada " + e.getId());
             }
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -314,7 +314,7 @@ public class InterpretVisitor extends Visitor{
                     e.getExpression().accept(this);
                 }
             } else {
-                throw new RuntimeException("Dados se diferenciam");
+                throw new RuntimeException("Dados diferentes");
             }
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -410,7 +410,7 @@ public class InterpretVisitor extends Visitor{
 			} else if (left.getClass() == Integer.class && right.getClass() == Float.class) {
                 operands.push((Integer) left % (Float) right);
 			} else {
-				throw new RuntimeException("Invalid");
+				throw new RuntimeException("Tipo inválido");
 			}
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -432,7 +432,7 @@ public class InterpretVisitor extends Visitor{
 			} else if (left.getClass() == Integer.class && right.getClass() == Float.class) {
                 operands.push((Integer) left / (Float) right);
 			} else {
-			    throw new RuntimeException("Invalid");
+			    throw new RuntimeException("Tipo inválido");
 			}
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -454,7 +454,7 @@ public class InterpretVisitor extends Visitor{
             } else if (left.getClass() == Integer.class && right.getClass() == Float.class) {
                 operands.push((Integer) left * (Float) right);
             } else {
-                throw new RuntimeException("Invalid");
+                throw new RuntimeException("Tipo inválido");
             }
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -476,7 +476,7 @@ public class InterpretVisitor extends Visitor{
 			} else if (left.getClass() == Integer.class && right.getClass() == Float.class) {
                 operands.push((Integer) left + (Float) right);
 			} else {
-				throw new RuntimeException("Invalid");
+				throw new RuntimeException("Tipo Inválido");
 			}
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -499,7 +499,7 @@ public class InterpretVisitor extends Visitor{
 			} else if (left.getClass() == Integer.class && right.getClass() == Float.class) {
                 operands.push((Integer) left - (Float) right);
 			} else {
-				throw new RuntimeException("Invalid");
+				throw new RuntimeException("Tipo Inválido");
 			}
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -515,7 +515,7 @@ public class InterpretVisitor extends Visitor{
             } else if (exp.getClass() == Float.class) {
                 operands.push(-exp.floatValue());
             } else {
-                throw new RuntimeException("Invalid");
+                throw new RuntimeException("Tipo Inválido");
             }
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());
@@ -578,7 +578,7 @@ public class InterpretVisitor extends Visitor{
 			} else if (left.getClass() == Integer.class && right.getClass() == Float.class) {
                 operands.push((Integer) left < (Float) right);
 			} else {
-				throw new RuntimeException("Invalid");
+				throw new RuntimeException("Tipo Inválido");
 			}	
         } catch (Exception x) {
             throw new RuntimeException(" (" + e.getLine() + ", " + e.getColumn() + ") " + x.getMessage());

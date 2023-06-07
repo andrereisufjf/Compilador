@@ -1,5 +1,5 @@
 # ------------
-# Arquivo de build para compila ̧c ̃ao do fonte
+# Arquivo de build para compila cao do fonte
 #
 # DCC045 - Teoria dos Compiladores
 # André Luiz dos Reis - 201965004C
