@@ -1,0 +1,101 @@
+ /*
+  *  DCC045 - Teoria dos Compiladores - 2023.1
+  *  André Luiz dos Reis - 201965004C
+  *  Lucca Oliveira Schröder - 201765205C
+  */
+
+group js;
+
+program(name, funcs, datas) ::= <<
+
+<datas; separator="\n\n">
+<funcs; separator="\n\n">
+
+main();  
+>>
+
+data(name, decl) ::= <<
+function  <name> () {
+    return{      
+      <decl; separator="\n">
+    }
+}
+>>
+decl(name) ::= <<
+'<name>': null,
+>>
+
+func(name, params, stmt) ::= <<
+function <name>(<params; separator=", ">) {
+    <stmt; separator="\n">
+}
+>>
+param(name) ::= "<name>"
+key(value) ::= "<value>"
+id_type(value) ::= "<value>"
+
+aux(expr) ::= "<expr>"
+return(aux) ::= <<
+return [<aux; separator=", ">];
+>>
+
+iterate(expr, stmt, lc) ::= <<
+for(let it<lc> = <expr>; it<lc> > 0; it<lc>--) {
+    <stmt>
+}
+>>
+
+if(expr, thn, els) ::= <<
+if(<expr>) {
+    <thn>
+} <if(els)>else {
+    <els>
+}
+<endif>
+>>
+
+stmt_list(stmts) ::= << 
+<stmts; separator="\n">
+>>
+
+print(expr) ::= "process.stdout.write(<expr>.toString());"
+read(expr) ::= <<
+input = require('prompt-sync')();
+<expr> = input();
+>>
+attr(expr, value) ::= "<expr> = <value>;"
+boolean_expr(value) ::= "<value>"
+float_expr(value) ::= "<value>.toFixed(1)"
+int_expr(value) ::= "<value>"
+char_expr(value) ::= "'<value>'"
+null_expr() ::= "null"
+
+call_cmd(name, args, exp) ::= <<
+<if(exp)>
+<exp : {exp | <exp.id> = <name>(<args; separator=", ">)[<exp.index>];
+}>
+<else>
+<name>(<args; separator=", ">);
+<endif>
+>>
+call_expr(name, args, expr) ::= <<
+<name>(<args; separator=", ">)[<expr>]
+>>
+
+mul_expr(left_expr, right_expr) ::= "(<left_expr> * <right_expr>)"
+div_expr(left_expr, right_expr) ::= "(<left_expr> / <right_expr>)"
+cmodule_expr(left_expr, right_expr) ::= "(<left_expr> % <right_expr>)"
+add_expr(left_expr, right_expr) ::= "(<left_expr> + <right_expr>)"
+sub_expr(left_expr, right_expr) ::= "(<left_expr> - <right_expr>)"
+lt_expr(left_expr, right_expr) ::= "(<left_expr> \< <right_expr>)"
+equals_expr(left_expr, right_expr) ::= "(<left_expr> == <right_expr>)"
+not_equals_expr(left_expr, right_expr) ::= "(<left_expr> != <right_expr>)"
+and_expr(left_expr, right_expr) ::= "(<left_expr> && <right_expr>)"
+not_expr(expr) ::= "!<expr>"
+sminus_expr(expr) ::= "<expr>--"
+
+lvalue(name, array) ::= "<name><array>"
+array_access(expr) ::= "[<expr>]"
+data_access(expr) ::= ".<expr>"
+new_expr_array() ::= "[]"
+new_expr_type(type) ::= "<type>()"
